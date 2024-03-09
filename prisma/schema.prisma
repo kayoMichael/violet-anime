@@ -1,0 +1,42 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Profile {
+  id        String   @id @default(uuid()) @db.Uuid
+  username  String?
+  email     String
+  profileImage String?
+  bio       String?
+  favourite Anime[]     
+
+  @@map("profile")
+}
+
+model Anime {
+  id        String   @id @default(uuid()) @db.Uuid
+  startDate DateTime
+  endDate   DateTime
+  title     String
+  author    String
+  image     String
+  rank      Int
+  mediaType String
+  score     Float
+  sypnosis  String
+  profile   Profile  @relation(fields: [profileId], references: [id])
+  profileId String   @db.Uuid
+
+  @@map("anime")
+}
