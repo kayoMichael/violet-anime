@@ -4,9 +4,9 @@ module.exports = {
     es2021: true,
   },
   extends: [
+    'next/core-web-vitals',
     'standard-with-typescript',
     'plugin:react/recommended',
-    'next/core-web-vitals',
     'prettier',
   ],
   overrides: [
@@ -25,7 +25,7 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['react', 'simple-import-sort'],
+  plugins: ['react'],
   ignorePatterns: [
     'node_modules',
     'public',
@@ -39,11 +39,6 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/strict-boolean-expressions': 'off',
-    'simple-import-sort/imports': 'error',
-    'simple-import-sort/exports': 'error',
-    'import/first': 'error',
-    'import/newline-after-import': 'error',
-    'import/no-duplicates': 'error',
     'padding-line-between-statements': [
       'error',
       {
