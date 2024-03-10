@@ -1,3 +1,21 @@
+import SignOutButton from '@/components/button/signoutButton';
+import { createClient } from '@/utils/supabase/server';
+import { redirect } from 'next/navigation';
+
 export default async function Home() {
-  return <h1>This is a Anime Website?</h1>;
+  const supabase = createClient();
+
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  if (!user) {
+    return redirect('/auth/signin');
+  }
+  return (
+    <div>
+      <SignOutButton />
+      <h1>This is a Anime Website?</h1>
+    </div>
+  );
 }
