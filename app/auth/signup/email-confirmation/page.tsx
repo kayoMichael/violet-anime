@@ -12,7 +12,6 @@ import {
 } from '@/components/ui/carousel';
 import { Label } from '@/components/ui/label';
 
-
 const carouselItems = [
   {
     image: '/carousel/carousel-1.jpg',
