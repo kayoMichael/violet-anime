@@ -114,5 +114,5 @@ export const signUp = async (_: authMessage, formData: FormData) => {
     return message;
   }
 
-  return redirect('/auth/signup/email-confirmation');
+  return redirect('/auth/signup/email-confirmation?email=' + email);
 };
