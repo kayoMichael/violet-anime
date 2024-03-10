@@ -25,6 +25,7 @@ export default function SignInForm() {
         className='absolute -z-10 object-cover w-full h-screen'
         height={1000}
         width={1000}
+        priority={true}
       />
       <div className='flex justify-center items-center pt-32'>
         <div className='max-w-md w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-white dark:bg-black'>

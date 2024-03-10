@@ -52,6 +52,7 @@ const EmailConfirmation = ({
           {carouselItems.map((item, index) => (
             <CarouselItem key={index}>
               <Image
+                priority={true}
                 src={item.image}
                 alt='background'
                 height={500}
