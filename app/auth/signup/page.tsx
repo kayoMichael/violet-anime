@@ -1,15 +1,17 @@
 'use client';
 
+import React from 'react';
+
+import { IconBrandGithub, IconBrandGoogle } from '@tabler/icons-react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useFormState } from 'react-dom';
+
 import { type authMessage, signUp } from '@/app/server/auth/authActions';
 import { SubmitButton } from '@/components/button/submitButton';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { cn } from '@/lib/utils';
-import { IconBrandGithub, IconBrandGoogle } from '@tabler/icons-react';
-import Image from 'next/image';
-import Link from 'next/link';
-import React from 'react';
-import { useFormState } from 'react-dom';
 
 export default function SignupForm() {
   const statusState: authMessage = {
@@ -24,12 +26,12 @@ export default function SignupForm() {
   return (
     <>
       <Image
-        src='/background/background-2.jpg'
         alt='background'
         className='absolute -z-10 object-cover w-full h-screen'
         height={1000}
-        width={1000}
         priority={true}
+        src='/background/background-2.jpg'
+        width={1000}
       />
       <div className='flex justify-center items-center pt-14'>
         <div className='max-w-md w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-white dark:bg-black'>
@@ -38,32 +40,32 @@ export default function SignupForm() {
           </h2>
           <p className='text-neutral-600 text-sm max-w-sm mt-2 dark:text-neutral-300'>
             Already have an account?{' '}
-            <Link href='/auth/signin' className='hover:underline'>
+            <Link className='hover:underline' href='/auth/signin'>
               Sign in
             </Link>
           </p>
-          <form className='my-8' action={formAction}>
+          <form action={formAction} className='my-8'>
             <div className='flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2'>
               <LabelInputContainer>
                 <Label htmlFor='firstName'>First name</Label>
                 <Input
                   id='firstName'
-                  placeholder='Violet'
+                  name='firstName'
                   onChange={() => {
                     state.firstName = [];
                     state.lastName = [];
                   }}
+                  placeholder='Violet'
                   type='text'
-                  name='firstName'
                 />
               </LabelInputContainer>
               <LabelInputContainer>
                 <Label htmlFor='lastname'>Last name</Label>
                 <Input
                   id='lastname'
+                  name='lastName'
                   placeholder='Evergarden'
                   type='text'
-                  name='lastName'
                 />
               </LabelInputContainer>
             </div>
@@ -76,9 +78,9 @@ export default function SignupForm() {
               <Label htmlFor='email'>Email Address</Label>
               <Input
                 id='email'
+                name='email'
                 placeholder='Leidenschaftlich@Leiden.com'
                 type='email'
-                name='email'
               />
             </LabelInputContainer>
             {state.email.length !== 0 && (
@@ -88,9 +90,9 @@ export default function SignupForm() {
               <Label htmlFor='password'>Password</Label>
               <Input
                 id='password'
+                name='password'
                 placeholder='••••••••'
                 type='password'
-                name='password'
               />
             </LabelInputContainer>
             {state.password.length !== 0 && (
@@ -100,9 +102,9 @@ export default function SignupForm() {
               <Label htmlFor='confirmPassword'>Confirm Password</Label>
               <Input
                 id='confirmPassword'
+                name='confirmPassword'
                 placeholder='••••••••'
                 type='password'
-                name='confirmPassword'
               />
             </LabelInputContainer>
             {state.confirmPassword.length !== 0 && (

@@ -1,9 +1,10 @@
 'use client';
 
-import { createClient } from '@/utils/supabase/client';
 import React from 'react';
 
 import { Button } from '../ui/button';
+
+import { createClient } from '@/utils/supabase/client';
 
 const SignOutButton = () => {
   const handleSignOut = async () => {

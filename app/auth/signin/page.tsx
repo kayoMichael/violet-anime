@@ -1,15 +1,17 @@
 'use client';
 
+import React from 'react';
+
+import { IconBrandGithub, IconBrandGoogle } from '@tabler/icons-react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useFormState } from 'react-dom';
+
 import { signIn, type signInMessage } from '@/app/server/auth/authActions';
 import { SubmitButton } from '@/components/button/submitButton';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { cn } from '@/lib/utils';
-import { IconBrandGithub, IconBrandGoogle } from '@tabler/icons-react';
-import Image from 'next/image';
-import Link from 'next/link';
-import React from 'react';
-import { useFormState } from 'react-dom';
 
 export default function SignInForm() {
   const statusState: signInMessage = {
@@ -20,12 +22,12 @@ export default function SignInForm() {
   return (
     <>
       <Image
-        src='/background/background.jpg'
         alt='background'
         className='absolute -z-10 object-cover w-full h-screen'
         height={1000}
-        width={1000}
         priority={true}
+        src='/background/background.jpg'
+        width={1000}
       />
       <div className='flex justify-center items-center pt-32'>
         <div className='max-w-md w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-white dark:bg-black'>
@@ -34,27 +36,27 @@ export default function SignInForm() {
           </h2>
           <p className='text-neutral-600 text-sm max-w-sm mt-2 dark:text-neutral-300'>
             Don&apos;t have an account?{' '}
-            <Link href='/auth/signup' className='hover:underline'>
+            <Link className='hover:underline' href='/auth/signup'>
               Sign Up
             </Link>
           </p>
-          <form className='my-8' action={formAction}>
+          <form action={formAction} className='my-8'>
             <LabelInputContainer className='mb-4'>
               <Label htmlFor='email'>Email Address</Label>
               <Input
                 id='email'
+                name='email'
                 placeholder='Leidenschaftlich@Leiden.com'
                 type='email'
-                name='email'
               />
             </LabelInputContainer>
             <LabelInputContainer>
               <Label htmlFor='password'>Password</Label>
               <Input
                 id='password'
+                name='password'
                 placeholder='••••••••'
                 type='password'
-                name='password'
               />
             </LabelInputContainer>
             {state.status === 'error' && (

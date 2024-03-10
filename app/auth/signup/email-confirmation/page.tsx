@@ -1,3 +1,8 @@
+import React from 'react';
+
+import Image from 'next/image';
+import { redirect } from 'next/navigation';
+
 import {
   Carousel,
   CarouselContent,
@@ -6,9 +11,7 @@ import {
   CarouselPrevious,
 } from '@/components/ui/carousel';
 import { Label } from '@/components/ui/label';
-import Image from 'next/image';
-import { redirect } from 'next/navigation';
-import React from 'react';
+
 
 const carouselItems = [
   {
@@ -52,12 +55,12 @@ const EmailConfirmation = ({
           {carouselItems.map((item, index) => (
             <CarouselItem key={index}>
               <Image
+                alt='background'
+                className='flex aspect-square items-center justify-center p-6'
+                height={500}
                 priority={true}
                 src={item.image}
-                alt='background'
-                height={500}
                 width={500}
-                className='flex aspect-square items-center justify-center p-6'
               ></Image>
               <Label className='flex justify-center text-neutral-800 dark:text-neutral-200 mb-2'>
                 {item.description}
