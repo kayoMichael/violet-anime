@@ -1,6 +1,6 @@
 'use client';
 
-import { type authMessage, signUp } from '@/app/server/auth/authActions';
+import { signIn, type signInMessage } from '@/app/server/auth/authActions';
 import { SubmitButton } from '@/components/button/submitButton';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -11,67 +11,34 @@ import Link from 'next/link';
 import React from 'react';
 import { useFormState } from 'react-dom';
 
-export default function SignupForm() {
-  const statusState: authMessage = {
-    status: 'stale',
-    firstName: [],
-    lastName: [],
-    email: [],
-    password: [],
-    confirmPassword: [],
+export default function SignInForm() {
+  const statusState: signInMessage = {
+    status: 'success',
+    error: null,
   } as const;
-  const [state, formAction] = useFormState(signUp, statusState);
+  const [state, formAction] = useFormState(signIn, statusState);
   return (
     <>
       <Image
-        src='/background/background-2.jpg'
+        src='/background/background.jpg'
         alt='background'
         className='absolute -z-10 object-cover w-full h-screen'
         height={1000}
         width={1000}
       />
-      <div className='flex justify-center items-center pt-14'>
+      <div className='flex justify-center items-center pt-32'>
         <div className='max-w-md w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-white dark:bg-black'>
           <h2 className='font-bold text-xl text-neutral-800 dark:text-neutral-200'>
-            Welcome to <span className='text-green-600'>Violet Anime</span>
+            Welcome Back to <span className='text-green-600'>Violet Anime</span>
           </h2>
           <p className='text-neutral-600 text-sm max-w-sm mt-2 dark:text-neutral-300'>
-            Already have an account?{' '}
-            <Link href='/auth/signin' className='hover:underline'>
-              Sign in
+            Don&apos;t have an account?{' '}
+            <Link href='/auth/signup' className='hover:underline'>
+              Sign Up
             </Link>
           </p>
           <form className='my-8' action={formAction}>
-            <div className='flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2'>
-              <LabelInputContainer>
-                <Label htmlFor='firstName'>First name</Label>
-                <Input
-                  id='firstName'
-                  placeholder='Violet'
-                  onChange={() => {
-                    state.firstName = [];
-                    state.lastName = [];
-                  }}
-                  type='text'
-                  name='firstName'
-                />
-              </LabelInputContainer>
-              <LabelInputContainer>
-                <Label htmlFor='lastname'>Last name</Label>
-                <Input
-                  id='lastname'
-                  placeholder='Evergarden'
-                  type='text'
-                  name='lastName'
-                />
-              </LabelInputContainer>
-            </div>
-            {(state.lastName.length !== 0 || state.firstName.length !== 0) && (
-              <p className='text-red-400 text-sm'>
-                First Name and Last Name is Required
-              </p>
-            )}
-            <LabelInputContainer className='mt-4'>
+            <LabelInputContainer className='mb-4'>
               <Label htmlFor='email'>Email Address</Label>
               <Input
                 id='email'
@@ -80,10 +47,7 @@ export default function SignupForm() {
                 name='email'
               />
             </LabelInputContainer>
-            {state.email.length !== 0 && (
-              <p className='text-red-400 text-sm'>{state.email}</p>
-            )}
-            <LabelInputContainer className='mt-4'>
+            <LabelInputContainer>
               <Label htmlFor='password'>Password</Label>
               <Input
                 id='password'
@@ -92,26 +56,14 @@ export default function SignupForm() {
                 name='password'
               />
             </LabelInputContainer>
-            {state.password.length !== 0 && (
-              <p className='text-red-400 text-sm'>{state.password}</p>
-            )}
-            <LabelInputContainer className='mt-4'>
-              <Label htmlFor='confirmPassword'>Confirm Password</Label>
-              <Input
-                id='confirmPassword'
-                placeholder='••••••••'
-                type='password'
-                name='confirmPassword'
-              />
-            </LabelInputContainer>
-            {state.confirmPassword.length !== 0 && (
-              <p className='text-red-400 text-sm'>{state.confirmPassword}</p>
+            {state.status === 'error' && (
+              <p className='text-red-400 text-sm'>{state.error}</p>
             )}
             <SubmitButton
-              className='mt-8 bg-gradient-to-br relative group/btn from-green-400 dark:from-zinc-900 dark:to-zinc-900 to-green-600 block dark:bg-zinc-800 w-full text-white rounded-md h-10 font-medium shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] dark:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_-1px_0px_0px_var(--zinc-800)_inset]'
+              className='mt-4 bg-gradient-to-br relative group/btn from-green-400 dark:from-zinc-900 dark:to-zinc-900 to-green-600 block dark:bg-zinc-800 w-full text-white rounded-md h-10 font-medium shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] dark:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_-1px_0px_0px_var(--zinc-800)_inset]'
               type='submit'
             >
-              Sign up &rarr;
+              Log In &rarr;
               <BottomGradient />
             </SubmitButton>
 
