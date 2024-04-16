@@ -1,22 +1,19 @@
-import { redirect } from 'next/navigation';
-
-import SignOutButton from '@/components/button/signoutButton';
-import { createClient } from '@/utils/supabase/server';
+import { HeroParallax } from '@/components/ui/hero-parallax';
+import { InfiniteMovingCards } from '@/components/ui/infinite-slider';
+import { heroItems, infiniteMovingItems } from '@/utils';
 
 export default async function Home() {
-  const supabase = createClient();
-
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-
-  if (!user) {
-    return redirect('/auth/signin');
-  }
   return (
-    <div>
-      <SignOutButton />
-      <h1>This is a Anime Website?</h1>
-    </div>
+    <>
+      <HeroParallax products={heroItems} />
+      <div className='flex justify-center'>
+        <InfiniteMovingCards
+          className='w-full'
+          direction='left'
+          items={infiniteMovingItems}
+          speed='slow'
+        />
+      </div>
+    </>
   );
 }
