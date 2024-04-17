@@ -15,32 +15,32 @@ export const heroItems = [
     thumbnail: '/hero/guilty-crown.jpg',
   },
   {
-    title: 'Saga of Tanya the Evil',
+    title: 'Saga of Tanya the Evil3',
     link: 'https://myanimelist.net/anime/32615/Youjo_Senki',
     thumbnail: '/hero/tanya.png',
   },
   {
-    title: 'Goblin Slayer',
+    title: 'Goblin Slayer3',
     link: 'https://myanimelist.net/anime/37349/Goblin_Slayer?q=goblin%20slayer&cat=anime',
     thumbnail: '/hero/goblin-slayer.jpeg',
   },
   {
-    title: 'Guilty Crown',
+    title: 'Guilty Crown2',
     link: 'https://myanimelist.net/anime/10793/Guilty_Crown',
     thumbnail: '/hero/guilty-crown.jpg',
   },
   {
-    title: 'Saga of Tanya the Evil',
+    title: 'Saga of Tanya the Evil2',
     link: 'https://myanimelist.net/anime/32615/Youjo_Senki',
     thumbnail: '/hero/tanya.png',
   },
   {
-    title: 'Goblin Slayer',
+    title: 'Goblin Slayer2',
     link: 'https://myanimelist.net/anime/37349/Goblin_Slayer?q=goblin%20slayer&cat=anime',
     thumbnail: '/hero/goblin-slayer.jpeg',
   },
   {
-    title: 'Guilty Crown',
+    title: 'Guilty Crown3',
     link: 'https://myanimelist.net/anime/10793/Guilty_Crown',
     thumbnail: '/hero/guilty-crown.jpg',
   },
@@ -49,21 +49,15 @@ export const heroItems = [
 export const infiniteMovingItems = [
   {
     quote:
-      'The only ones who should kill are those who are prepared to kill themselves',
-    name: 'Lelouch Lamperouge',
-    title: 'Code Geass',
-  },
-  {
-    quote:
-      "It’s not the face that makes someone a monster, it's the choices they make with their lives",
+      "It's not the face that makes someone a monster, it's the choices they make with their lives",
     name: 'Naruto Uzumaki',
     title: 'Naruto',
   },
   {
     quote:
-      'It is not the power of the curse, but the strength in what you do with it',
-    name: 'Mirajane Strauss',
-    title: 'Fairy Tail',
+      'I am the hope of the universe. I am the answer to all living things that cry out for peace. I am protector of the innocent. I am the light in the darkness. I am truth. Ally to good! Nightmare to you!',
+    name: 'Son Goku',
+    title: 'Dragon Ball ',
   },
   {
     name: 'Saitama',
@@ -79,13 +73,31 @@ export const infiniteMovingItems = [
   {
     name: 'Tanya Van Degurechaff',
     quote:
-      "If there is a God who rules this world, it is a stern, solemn, and definitely a good being. A being that is far too great. God keeps forcing us to confront these cruel fates. As those were the rules of this world! Oh, God... I'll slice you into tiny pieces and feed you to the pigs! Our battlefield is no place for that piece of shit, God! I think it's time we took over God's work. We, soldiers, will take God's place. Put the arrogant ass, God, out of a job! All right troops... It's time for war!",
+      'Freedom without laws means anarchy; laws without freedom means tyranny.',
     title: 'Youjo Senki',
   },
   {
     name: 'Nanba Mutta',
     quote:
-      'When you build something, you must be ready to spend time and money on failure. The best materials won’t always yield the best results. However, if you build something by improving on failure, you’ll end up with good.',
+      "When you build something, you must be ready to spend time and money on failure. The best materials won’t always yield the best results. However, if you build something by improving on failure, you'll end up with good.",
     title: 'Space Brothers',
+  },
+  {
+    name: 'Mumen Rider',
+    quote:
+      "It's not about winning or losing, Its about me taking you on right here right now!",
+    title: 'One Punch Man',
+  },
+  {
+    name: 'Lizard Priest',
+    title: 'Goblin Slayer',
+    quote:
+      'A dragon only has honour when its a true dragon. A dragon without hounour is no dragon',
+  },
+  {
+    name: 'Lelouche Vi Britannia',
+    title: 'Code Geass',
+    quote:
+      "Before creation there must be destruction. If my soul stands in the way, then I'll toss it aside. Yes, I have no choice but to move forward.",
   },
 ];

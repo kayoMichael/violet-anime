@@ -6,7 +6,7 @@ export default async function Home() {
   return (
     <>
       <HeroParallax products={heroItems} />
-      <div className='flex justify-center'>
+      <div className='flex justify-center mt-0'>
         <InfiniteMovingCards
           className='w-full'
           direction='left'
