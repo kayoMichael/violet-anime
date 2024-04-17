@@ -15,25 +15,41 @@ const MainNavigation = () => {
           <h1 className='text-xl text-primary font-bold'>Violet Anime</h1>
         </Button>
         <Link
-          className={pathname !== '/dashboard' ? 'text-gray-500 hover:text-primary' : 'text-primary'}
+          className={
+            pathname !== '/dashboard'
+              ? 'text-gray-500 hover:text-primary'
+              : 'text-primary'
+          }
           href='/dashboard'
         >
           Dashboard
         </Link>
         <Link
-          className={pathname !== '/calendar' ? 'text-gray-500 hover:text-primary' : 'text-primary'}
+          className={
+            pathname !== '/calendar'
+              ? 'text-gray-500 hover:text-primary'
+              : 'text-primary'
+          }
           href='/calendar'
         >
           Calendar
         </Link>
         <Link
-          className={pathname !== '/favourites' ? 'text-gray-500 hover:text-primary' : 'text-primary'}
+          className={
+            pathname !== '/favourites'
+              ? 'text-gray-500 hover:text-primary'
+              : 'text-primary'
+          }
           href='/favourites'
         >
           Favourites
         </Link>
         <Link
-          className={pathname !== '/animeList' ? 'text-gray-500 hover:text-primary' : 'text-primary'}
+          className={
+            pathname !== '/animeList'
+              ? 'text-gray-500 hover:text-primary'
+              : 'text-primary'
+          }
           href='/animeList'
         >
           Anime List
