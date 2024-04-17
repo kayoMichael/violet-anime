@@ -6,7 +6,19 @@ import interactionPlugin from '@fullcalendar/interaction';
 import FullCalendar from '@fullcalendar/react';
 import timeGridPlugin from '@fullcalendar/timegrid';
 
-const Calendar = () => {
+interface AnimeEvent {
+  title: string;
+  start: string;
+  end: string;
+  url: string;
+  description: string;
+  editable: boolean;
+}
+
+interface Props {
+  animeEvents: AnimeEvent;
+}
+const Calendar = ({ animeEvents }: Props) => {
   return (
     <div className='w-full'>
       <div className='flex'>
@@ -14,11 +26,11 @@ const Calendar = () => {
           <FullCalendar
             droppable={true}
             editable={true}
-            events={{}}
+            events={animeEvents}
             headerToolbar={{
               left: 'prev,next today',
               center: 'title',
-              right: 'resourceTimelineWook, dayGridMonth, timeGridWeek',
+              right: 'dayGridMonth, timeGridWeek',
             }}
             nowIndicator={true}
             plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
@@ -28,7 +40,7 @@ const Calendar = () => {
         </div>
         <div>
           <div className='bg-gray-100 h-full p-4'>
-            <h2 className='text-lg font-bold'>Draggable Events</h2>
+            <h2 className='text-lg font-bold'>Anime Event</h2>
             <div className='mt-4'>
               <div className='bg-white p-2 rounded-lg shadow-md'>
                 <div className='text-sm'>Event 1</div>
