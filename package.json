@@ -13,10 +13,13 @@
     "test-all": "npm run check-types && npm run check-format && npm run check-lint"
   },
   "dependencies": {
+    "@emotion/styled": "^11.11.5",
     "@fullcalendar/core": "^6.1.11",
     "@fullcalendar/daygrid": "^6.1.11",
+    "@fullcalendar/interaction": "^6.1.11",
     "@fullcalendar/react": "^6.1.11",
-    "@prisma/client": "^5.10.2",
+    "@fullcalendar/timegrid": "^6.1.11",
+    "@prisma/client": "^5.14.0",
     "@radix-ui/react-icons": "^1.3.0",
     "@radix-ui/react-label": "^2.0.2",
     "@radix-ui/react-slot": "^1.0.2",
@@ -57,7 +60,7 @@
     "eslint-plugin-react": "^7.34.0",
     "husky": "^8.0.0",
     "prettier": "^3.2.5",
-    "prisma": "^5.10.2",
+    "prisma": "^5.14.0",
     "typescript": "^5.4.2"
   },
   "eslintIgnore": [

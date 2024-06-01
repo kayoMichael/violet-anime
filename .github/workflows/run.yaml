@@ -2,6 +2,9 @@ name: Test and Build
 
 on: [push]
 
+env:
+  MAL_API_KEY: ${{ secrets.MAL_API_KEY }}
+
 jobs:
   lint:
     runs-on: ubuntu-latest

@@ -14,7 +14,7 @@ const DashBoard = async () => {
   if (!user) {
     return redirect('/auth/signin');
   }
-  return <div>DashBoard</div>;
+  return <div></div>;
 };
 
 export default DashBoard;
