@@ -1,6 +1,7 @@
 'use client';
 import React from 'react';
 
+import styled from '@emotion/styled';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import FullCalendar from '@fullcalendar/react';
@@ -18,25 +19,38 @@ interface AnimeEvent {
 interface Props {
   animeEvents: AnimeEvent;
 }
+
+// add styles as css
+export const StyleWrapper = styled.div`
+  .fc td {
+    height: 300px;
+  }
+  .fc {
+    height: auto;
+  }
+`;
+
 const Calendar = ({ animeEvents }: Props) => {
   return (
-    <div className='w-full'>
+    <div className='w-full h-[5000px]'>
       <div className='flex'>
-        <div className='flex-1 h-full'>
-          <FullCalendar
-            droppable={true}
-            editable={true}
-            events={animeEvents}
-            headerToolbar={{
-              left: 'prev,next today',
-              center: 'title',
-              right: 'dayGridMonth, timeGridWeek',
-            }}
-            nowIndicator={true}
-            plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
-            selectMirror={true}
-            selectable={true}
-          ></FullCalendar>
+        <div className='flex-1 h-[5000px]'>
+          <StyleWrapper>
+            <FullCalendar
+              droppable={true}
+              editable={true}
+              events={animeEvents}
+              headerToolbar={{
+                left: 'prev,next today',
+                center: 'title',
+                right: 'dayGridMonth, timeGridWeek',
+              }}
+              nowIndicator={true}
+              plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
+              selectMirror={true}
+              selectable={true}
+            ></FullCalendar>
+          </StyleWrapper>
         </div>
         <div>
           <div className='bg-gray-100 h-full p-4'>

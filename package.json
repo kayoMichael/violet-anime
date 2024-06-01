@@ -13,6 +13,7 @@
     "test-all": "npm run check-types && npm run check-format && npm run check-lint"
   },
   "dependencies": {
+    "@emotion/styled": "^11.11.5",
     "@fullcalendar/core": "^6.1.11",
     "@fullcalendar/daygrid": "^6.1.11",
     "@fullcalendar/interaction": "^6.1.11",

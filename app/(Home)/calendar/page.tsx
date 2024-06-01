@@ -9,6 +9,7 @@ interface Anime {
     end_date: string;
     synopsis: string;
     id: number;
+    num_episodes?: number;
   };
 }
 
@@ -25,22 +26,29 @@ const CalendarPage = async () => {
       headers: {
         'X-MAL-CLIENT-ID': clientId,
       },
+      cache: 'no-store',
     }
   ).then(async (res) => {
     return await res.json();
   });
   const animeEvents = anime.data.map((anime: Anime) => {
-    return {
-      title: anime.node.title,
-      start: anime.node.start_date,
-      description: anime.node.synopsis,
-      end: anime.node.end_date,
-      url: `https://myanimelist.net/anime/${anime.node.id}`,
-      editable: false,
-    };
+    const episodes = anime.node.num_episodes ?? 12;
+    const startDate = new Date(anime.node.start_date);
+    return Array.from({ length: episodes }, (_, i) => {
+      const eventDate = new Date(startDate);
+      eventDate.setDate(startDate.getDate() + i * 7);
+      return {
+        title: anime.node.title,
+        start: eventDate.toISOString().split('T')[0],
+        description: anime.node.synopsis,
+        end: eventDate.toISOString().split('T')[0],
+        url: `https://myanimelist.net/anime/${anime.node.id}`,
+        editable: false,
+      };
+    });
   });
 
-  return <Calendar animeEvents={animeEvents}></Calendar>;
+  return <Calendar animeEvents={animeEvents.flat()}></Calendar>;
 };
 
 export default CalendarPage;
