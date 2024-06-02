@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
 
 import { DirectionAwareHover } from './directional-aware-hover';
-import { StarFilledIcon, StarIcon } from '@radix-ui/react-icons';
+import { StarFilledIcon } from '@radix-ui/react-icons';
 
 export type Card = {
   id: number;
