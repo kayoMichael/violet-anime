@@ -2,7 +2,9 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
-import Image from 'next/image';
+
+import { DirectionAwareHover } from './directional-aware-hover';
+import { StarFilledIcon, StarIcon } from '@radix-ui/react-icons';
 
 export type Card = {
   id: number;
@@ -30,9 +32,9 @@ export const LayoutGrid = ({ cards }: { cards: Card[] }) => {
   };
 
   return (
-    <div className='w-full h-full grid grid-cols-3 md:grid-cols-5 gap-4 relative'>
+    <div className='w-full h-full grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 sm:gap-6 md:gap-8 lg:gap-10 xl:gap-12 relative'>
       {cards.map((card, i) => (
-        <div key={i} className='w-[300px] h-[400px]'>
+        <div key={i} className='w-[250px] h-[350px]'>
           <motion.div
             onClick={() => handleClick(card)}
             className={cn(
@@ -66,17 +68,22 @@ export const LayoutGrid = ({ cards }: { cards: Card[] }) => {
 const BlurImage = ({ card }: { card: Card }) => {
   const [loaded, setLoaded] = useState(false);
   return (
-    <Image
-      src={card.picture}
-      height='500'
-      width='500'
-      onLoad={() => setLoaded(true)}
+    <DirectionAwareHover
+      imageUrl={card.picture}
       className={cn(
-        'object-cover object-top absolute inset-0 h-full w-full transition duration-200',
+        'object-top absolute inset-0 transition duration-200',
         loaded ? 'blur-none' : 'blur-md'
       )}
-      alt='thumbnail'
-    />
+      setLoaded={setLoaded}
+    >
+      <p className='font-bold text-xl'>{card.title}</p>
+      <p className='font-normal text-sm'>
+        <div className={cn('flex items-center', !card.mean ? 'hidden' : '')}>
+          <StarFilledIcon color='yellow' />
+          {card.mean}
+        </div>
+      </p>
+    </DirectionAwareHover>
   );
 };
 

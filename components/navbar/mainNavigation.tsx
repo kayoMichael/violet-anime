@@ -46,7 +46,7 @@ const MainNavigation = () => {
         </Link>
         <Link
           className={
-            pathname !== '/animeList'
+            pathname !== '/anime'
               ? 'text-gray-500 hover:text-primary'
               : 'text-primary'
           }
