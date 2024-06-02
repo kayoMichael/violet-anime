@@ -77,12 +77,12 @@ const BlurImage = ({ card }: { card: Card }) => {
       setLoaded={setLoaded}
     >
       <p className='font-bold text-xl'>{card.title}</p>
-      <p className='font-normal text-sm'>
+      <div className='font-normal text-sm'>
         <div className={cn('flex items-center', !card.mean ? 'hidden' : '')}>
           <StarFilledIcon color='yellow' />
           {card.mean}
         </div>
-      </p>
+      </div>
     </DirectionAwareHover>
   );
 };
