@@ -89,7 +89,7 @@ const BlurImage = ({ card }: { card: Card }) => {
 
 const SelectedCard = ({ selected }: { selected: Card | null }) => {
   return (
-    <div className='bg-transparent h-full w-full flex flex-col justify-end rounded-lg shadow-2xl relative z-[60]'>
+    <div className='bg-slate-200 h-full w-full rounded-lg relative z-[60]'>
       <motion.div
         initial={{
           opacity: 0,
@@ -97,7 +97,7 @@ const SelectedCard = ({ selected }: { selected: Card | null }) => {
         animate={{
           opacity: 0.6,
         }}
-        className='absolute inset-0 h-full w-full bg-black opacity-60 z-10'
+        className='absolute inset-0 h-full w-full'
       />
       <motion.div
         initial={{
@@ -112,7 +112,7 @@ const SelectedCard = ({ selected }: { selected: Card | null }) => {
           duration: 0.3,
           ease: 'easeInOut',
         }}
-        className='relative px-8 pb-4 z-[70]'
+        className='bg-slate-200'
       >
         {selected?.content}
       </motion.div>

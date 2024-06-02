@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { LayoutGrid } from '@/components/ui/layout-grid';
 
 export interface AnimeList {
@@ -17,13 +18,16 @@ export interface AnimeList {
 
 const SkeletonOne = (content: string, title: string) => {
   return (
-    <div>
-      <p className='font-bold text-4xl text-white'>{title}</p>
-      <p className='font-normal text-base text-white'></p>
-      <p className='font-normal text-base my-4 max-w-lg text-neutral-200'>
-        {content}
-      </p>
-    </div>
+    <Card className='h-[500px] w-full'>
+      <CardHeader>
+        <p className='font-bold text-4xl text-black'>{title}</p>
+      </CardHeader>
+      <CardContent>
+        <p className='font-normal text-base my-4 max-w-lg text-black'>
+          {content}
+        </p>
+      </CardContent>
+    </Card>
   );
 };
 
