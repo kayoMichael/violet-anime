@@ -46,13 +46,13 @@ const MainNavigation = () => {
         </Link>
         <Link
           className={
-            pathname !== '/animeList'
+            pathname !== '/anime'
               ? 'text-gray-500 hover:text-primary'
               : 'text-primary'
           }
-          href='/animeList'
+          href='/anime'
         >
-          Anime List
+          Season Anime
         </Link>
       </nav>
     </header>
