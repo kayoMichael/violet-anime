@@ -32,9 +32,9 @@ export const LayoutGrid = ({ cards }: { cards: Card[] }) => {
   };
 
   return (
-    <div className='w-full h-full grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 sm:gap-6 md:gap-8 lg:gap-10 xl:gap-12 relative'>
+    <div className='w-full h-full grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 sm:gap-6 md:gap-8 lg:gap-10 xl:gap-12 relative'>
       {cards.map((card, i) => (
-        <div key={i} className='w-[250px] h-[350px]'>
+        <div key={i} className='sm:w-[250px] h-[350px] w-[175px]'>
           <motion.div
             onClick={() => handleClick(card)}
             className={cn(

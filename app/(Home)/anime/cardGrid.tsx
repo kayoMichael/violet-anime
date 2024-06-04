@@ -1,5 +1,7 @@
-import React from 'react';
+'use client';
+import React, { useState } from 'react';
 
+import { Pagination } from '@/components/pagination/pagination';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { LayoutGrid } from '@/components/ui/layout-grid';
 
@@ -32,21 +34,32 @@ const SkeletonOne = (content: string, title: string) => {
 };
 
 const CardGrid = ({ animeList }: { animeList: Array<{ node: AnimeList }> }) => {
-  const gridContent = animeList.map((anime) => {
-    return {
-      id: anime.node.id,
-      title: anime.node.title,
-      picture: anime.node.main_picture.large,
-      content: SkeletonOne(anime.node.synopsis, anime.node.title),
-      rank: anime.node.rank,
-      mean: anime.node.mean,
-      popularity: anime.node.popularity,
-      className: '',
-    };
-  });
+  const [currentPage, setCurrentPage] = useState(1);
+  const gridContent = animeList
+    .slice((currentPage - 1) * 100, currentPage * 100)
+    .map((anime) => {
+      return {
+        id: anime.node.id,
+        title: anime.node.title,
+        picture: anime.node.main_picture.large,
+        content: SkeletonOne(anime.node.synopsis, anime.node.title),
+        rank: anime.node.rank,
+        mean: anime.node.mean,
+        popularity: anime.node.popularity,
+        className: '',
+      };
+    });
   return (
     <div className='h-auto py-20'>
       <LayoutGrid cards={gridContent} />
+      <div className='mt-14'>
+        <Pagination
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+          totalPages={Math.ceil(animeList.length / 100)}
+          totalPagesToDisplay={5}
+        ></Pagination>
+      </div>
     </div>
   );
 };

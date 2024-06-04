@@ -1,8 +1,20 @@
 import React from 'react';
 
-import MainNavigation from '@/components/navbar/mainNavigation';
+import { redirect } from 'next/navigation';
 
-const layout = ({ children }: { children: React.ReactNode }) => {
+import MainNavigation from '@/components/navbar/mainNavigation';
+import { createClient } from '@/utils/supabase/server';
+
+const layout = async ({ children }: { children: React.ReactNode }) => {
+  const supabase = createClient();
+
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  if (!user) {
+    return redirect('/auth/signin');
+  }
   return (
     <main>
       <MainNavigation />
